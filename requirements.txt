@@ -1,0 +1,4 @@
+Using selenium:
+ chromedriver_v101.exe is needed.
+
+Scrapping only rrr.lt website.
