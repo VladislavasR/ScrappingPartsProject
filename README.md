@@ -8,3 +8,4 @@ How to launch the program:
 7. Write name of part you want to search.
 8. For testing purpose empty name will look for 'Toyota Distronikas'.
 9. Provide more accurate naming for best results.
+10. Search results are saved in logs\output_data file.
