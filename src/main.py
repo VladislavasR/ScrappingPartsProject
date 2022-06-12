@@ -24,4 +24,4 @@ scrapper = Scrapper.RRRScrapper()
 parts_found = scrapper.ScrapeBySearchName(search_name)
 
 method = config['method_to_illustrate'].upper() if args.method is None else args.method.upper()
-logger.warning('{} : {}'.format(method + ' parts found', parts_found))
+logger.warning('{} : {}'.format(method + ' ' + search_name + ' parts found', parts_found))

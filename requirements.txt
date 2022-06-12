@@ -1,4 +1,7 @@
 Using selenium:
- chromedriver_v101.exe is needed.
+1. Chrome browser must be installed.
+2. chromedriver_v101.exe is needed.
+3. Selenium package must be installed.
+$. PyYaml package must be installed.
 
 Scrapping only rrr.lt website.
