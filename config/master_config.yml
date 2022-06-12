@@ -1,0 +1,32 @@
+app:
+    method_to_illustrate: ScrapeBySearchName
+
+logging:
+    version: 1
+    formatters:
+        brief:
+            format: '%(message)s'
+        default:
+            format: '%(asctime)s %(levelname)-8s [%(name)s] %(message)s'
+            datefmt: '%Y-%m-%d %H:%M:%S'
+    handlers:
+        console:
+            class: logging.StreamHandler
+            level: DEBUG
+        file:
+            class: logging.FileHandler
+            level: DEBUG
+            formatter: default
+            filename: ..\logs\main.log
+        error_file:
+            class: logging.FileHandler
+            level: DEBUG
+            formatter: default
+            filename: ..\logs\error.log
+    loggers:
+        main:
+            level: DEBUG
+            handlers: [ file ]
+        error:
+            level: DEBUG
+            handlers: [ error_file ]
