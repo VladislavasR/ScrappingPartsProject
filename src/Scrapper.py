@@ -69,7 +69,7 @@ class RRRScrapper():
 
                 too_many_results = driver.find_element(By.CLASS_NAME, 'part-count').text
                 if len(too_many_results) > 4:
-                    error_logger.exception('Too many results for this part name')
+                    error_logger.exception('Too many results for this part name.')
                     break
 
                 parts_name = RRRScrapper.ScrapeNameData(driver)
@@ -97,6 +97,7 @@ class RRRScrapper():
                         data_formated = [{"Part Name": parts_name[j].text, "Car Name": car_names[j], "Part Code": part_codes[j], "Adress": adress[j], "Price": parts_prices[j].text}]
                         data_out.append(data_formated)
                     except:
+                        error_logger.exception('Not all info about part was found. Some results may be missing in output data.')
                         break
 
                 check_to_stop =  driver.find_elements(by=By.XPATH, value='//span[@class="pages__links disabled" and text()="Sekantis"]')
@@ -113,7 +114,6 @@ class RRRScrapper():
 
                 next_elem = driver.find_element(by=By.XPATH, value='//a[@class="pages__links" and text()="Sekantis"]')
                 next_elem.send_keys(Keys.ENTER)
-
 
         with open('..\logs\output_data.json', 'w') as f:
             json.dump(data_out, f, indent=4, ensure_ascii=False)
