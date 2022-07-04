@@ -1,4 +1,4 @@
-import Scrapper
+import MyScrapper
 import logging
 import yaml
 import argparse
@@ -20,7 +20,7 @@ if search_name == "":
     search_name = "Toyota Distronikas"
 
 parts_found = 0
-scrapper = Scrapper.RRRScrapper()
+scrapper = MyScrapper.RRRScrapper()
 parts_found = scrapper.ScrapeBySearchName(search_name)
 
 method = config['method_to_illustrate'].upper() if args.method is None else args.method.upper()
