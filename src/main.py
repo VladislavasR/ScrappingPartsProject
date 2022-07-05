@@ -1,4 +1,5 @@
 import MyScrapper
+import DataAnalyzer
 import logging
 import yaml
 import argparse
@@ -19,9 +20,17 @@ search_name = input()
 if search_name == "":
     search_name = "Toyota Distronikas"
 
+print('Enter maximum price to filter out results:')
+max_price = input()
+
 parts_found = 0
 scrapper = MyScrapper.RRRScrapper()
 parts_found = scrapper.ScrapeBySearchName(search_name)
 
+analyzer = DataAnalyzer.ScrapeDataAnalyzer()
+avg_part_price = analyzer.GetAveragePrice()
+analyzer.GetDataFilteredByMaxPrice(max_price)
+
 method = config['method_to_illustrate'].upper() if args.method is None else args.method.upper()
-logger.warning('{} : {}'.format(method + ' ' + search_name + ' parts found', parts_found))
+logger.warning('{} : {}, {} : {}'.format(method + ' ' + search_name + ' parts found', parts_found,
+                                         'average price', avg_part_price))
